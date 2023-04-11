@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "2ed62f49-8e5b-4183-a2cf-ea043e9366dd",
+		"name": "Kotlin REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23374288"
+	},
+	"item": [
+		{
+			"name": "Listar Topicos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Topico com id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topicos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Topico",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Novo titulo\",\n    \"mensagem\": \"Nova mensagem\",\n    \"idCurso\": \"1\",\n    \"idAutor\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/topicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Topico",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Titulo alterado\",\n    \"mensagem\": \"Mensagem alterada\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/topicos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Topico",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/topicos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topicos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
