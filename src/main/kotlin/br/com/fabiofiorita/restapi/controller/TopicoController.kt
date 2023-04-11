@@ -1,5 +1,6 @@
 package br.com.fabiofiorita.restapi.controller
 
+import br.com.fabiofiorita.restapi.dto.AutalizacaoTopicoForm
 import br.com.fabiofiorita.restapi.dto.TopicoForm
 import br.com.fabiofiorita.restapi.dto.TopicoView
 import br.com.fabiofiorita.restapi.service.TopicoService
@@ -24,4 +25,10 @@ class TopicoController(private val service: TopicoService) {
     fun cadastrar(@RequestBody @Valid form: TopicoForm) {
         service.cadastrar(form = form)
     }
+
+    @PutMapping
+    fun atualizar(@RequestBody @Valid form: AutalizacaoTopicoForm) {
+        service.atualizar(form = form)
+    }
+
 }
