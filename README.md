@@ -1,4 +1,5 @@
 # Modelo de API REST utilizando Kotlin com Spring Boot 🚀
+<img src="https://raw.githubusercontent.com/FabioFiorita/Kotlin-REST-API/master/postman/kotlin-rest-api.png#vitrinedev" alt="Kotlin REST API">
 
 ## Descrição 📝
 
