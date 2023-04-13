@@ -4,6 +4,7 @@ import br.com.fabiofiorita.restapi.dto.AutalizacaoTopicoForm
 import br.com.fabiofiorita.restapi.dto.TopicoForm
 import br.com.fabiofiorita.restapi.dto.TopicoView
 import br.com.fabiofiorita.restapi.service.TopicoService
+import jakarta.transaction.Transactional
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -25,6 +26,7 @@ class TopicoController(private val service: TopicoService) {
     }
 
     @PostMapping
+    @Transactional
     fun cadastrar(@RequestBody @Valid form: TopicoForm, uriBuilder: UriComponentsBuilder): ResponseEntity<TopicoView> {
         val topicoView = service.cadastrar(form = form)
         val uri = uriBuilder.path("/topicos/${topicoView.id}").build().toUri()
@@ -32,6 +34,7 @@ class TopicoController(private val service: TopicoService) {
     }
 
     @PutMapping
+    @Transactional
     fun atualizar(@RequestBody @Valid form: AutalizacaoTopicoForm): ResponseEntity<TopicoView> {
         val topicoView = service.atualizar(form = form)
         return ResponseEntity.ok(topicoView)
@@ -39,6 +42,7 @@ class TopicoController(private val service: TopicoService) {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Transactional
     fun deletar(@PathVariable id: Long) {
         service.deletar(id = id)
     }
