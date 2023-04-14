@@ -14,5 +14,5 @@ data class Usuario(
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_role")
-    val roles: List<Role> = mutableListOf()
+    val role: List<Role> = mutableListOf()
 )
