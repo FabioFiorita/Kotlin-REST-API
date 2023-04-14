@@ -6,7 +6,8 @@ import jakarta.persistence.Id
 
 @Entity
 data class Curso(
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     val id: Long? = null,
     val nome: String,
     val categoria: String
