@@ -9,15 +9,25 @@
 		{
 			"name": "Listar Topicos",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE1MDAyNDN9.44DNUNG1Od28lKRQ5zLZFILgi7IzNHc80syetS3A7l6q14JW3sSDZscfDib185C3MGnVb3J1gGGskWE1CUXbow",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/topicos",
+					"raw": "http://localhost:3080/topicos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "3080",
 					"path": [
 						"topicos"
 					]
@@ -28,15 +38,25 @@
 		{
 			"name": "Listar Topico com id",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE0OTgyOTB9.Z6zJr95afumXZi4qJsVB6xF4RSp5UjBC1annA0l-djHU8YOrmGNpZ4ndKaBn5T866rB0Rh8NE4lliph97togEA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/topicos/1",
+					"raw": "http://localhost:3080/topicos/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "3080",
 					"path": [
 						"topicos",
 						"1"
@@ -48,6 +68,16 @@
 		{
 			"name": "Cadastrar Topico",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE1MDAyNDN9.44DNUNG1Od28lKRQ5zLZFILgi7IzNHc80syetS3A7l6q14JW3sSDZscfDib185C3MGnVb3J1gGGskWE1CUXbow",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -61,12 +91,12 @@
 					"raw": "{\n    \"titulo\": \"Novo titulo\",\n    \"mensagem\": \"Nova mensagem\",\n    \"idCurso\": \"1\",\n    \"idAutor\": 1\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/topicos",
+					"raw": "http://localhost:3080/topicos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "3080",
 					"path": [
 						"topicos"
 					]
@@ -75,8 +105,47 @@
 			"response": []
 		},
 		{
+			"name": "Fazer Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"joao@email.com\",\n    \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Atualizar Topico",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE0OTgyOTB9.Z6zJr95afumXZi4qJsVB6xF4RSp5UjBC1annA0l-djHU8YOrmGNpZ4ndKaBn5T866rB0Rh8NE4lliph97togEA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -90,12 +159,12 @@
 					"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Titulo alterado\",\n    \"mensagem\": \"Mensagem alterada\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/topicos",
+					"raw": "http://localhost:3080/topicos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "3080",
 					"path": [
 						"topicos"
 					]
@@ -106,15 +175,25 @@
 		{
 			"name": "Deletar Topico",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE0OTgyOTB9.Z6zJr95afumXZi4qJsVB6xF4RSp5UjBC1annA0l-djHU8YOrmGNpZ4ndKaBn5T866rB0Rh8NE4lliph97togEA",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/topicos/1",
+					"raw": "http://localhost:3080/topicos/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "3080",
 					"path": [
 						"topicos",
 						"1"
