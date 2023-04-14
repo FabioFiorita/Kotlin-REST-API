@@ -2,6 +2,7 @@ package br.com.fabiofiorita.restapi.controller
 
 import br.com.fabiofiorita.restapi.dto.AutalizacaoTopicoForm
 import br.com.fabiofiorita.restapi.dto.TopicoForm
+import br.com.fabiofiorita.restapi.dto.TopicoPorCategoriaDto
 import br.com.fabiofiorita.restapi.dto.TopicoView
 import br.com.fabiofiorita.restapi.service.TopicoService
 import jakarta.transaction.Transactional
@@ -58,5 +59,10 @@ class TopicoController(private val service: TopicoService) {
     @CacheEvict(value = ["topicos"], allEntries = true)
     fun deletar(@PathVariable id: Long) {
         service.deletar(id = id)
+    }
+
+    @GetMapping("/relatorio")
+    fun relatorio(): List<TopicoPorCategoriaDto> {
+        return service.relatorio()
     }
 }

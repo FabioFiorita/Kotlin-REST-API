@@ -2,6 +2,7 @@ package br.com.fabiofiorita.restapi.service
 
 import br.com.fabiofiorita.restapi.dto.AutalizacaoTopicoForm
 import br.com.fabiofiorita.restapi.dto.TopicoForm
+import br.com.fabiofiorita.restapi.dto.TopicoPorCategoriaDto
 import br.com.fabiofiorita.restapi.dto.TopicoView
 import br.com.fabiofiorita.restapi.exception.NotFoundException
 import br.com.fabiofiorita.restapi.mapper.TopicoFormMapper
@@ -49,5 +50,9 @@ class TopicoService(
 
     fun deletar(id: Long) {
         repository.deleteById(id)
+    }
+
+    fun relatorio(): List<TopicoPorCategoriaDto> {
+        return repository.relatorio()
     }
 }
