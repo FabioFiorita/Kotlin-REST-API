@@ -15,7 +15,8 @@ import org.springframework.security.web.SecurityFilterChain
 class SecurityConfiguration {
     @Bean
     fun filterChain(httpSecurity: HttpSecurity): SecurityFilterChain {
-        httpSecurity.authorizeHttpRequests().anyRequest().authenticated().and().sessionManagement()
+        httpSecurity.authorizeHttpRequests().requestMatchers("/topicos").hasAuthority("LEITURA_ESCRITA")
+            .anyRequest().authenticated().and().sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().formLogin().disable().httpBasic()
 
         return httpSecurity.build()
