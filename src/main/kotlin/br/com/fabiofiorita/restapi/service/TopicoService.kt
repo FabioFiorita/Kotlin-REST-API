@@ -8,6 +8,7 @@ import br.com.fabiofiorita.restapi.exception.NotFoundException
 import br.com.fabiofiorita.restapi.mapper.TopicoFormMapper
 import br.com.fabiofiorita.restapi.mapper.TopicoViewMapper
 import br.com.fabiofiorita.restapi.repository.TopicoRepository
+import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import java.time.LocalDate
@@ -19,11 +20,9 @@ class TopicoService(
     private val topicoFormMapper: TopicoFormMapper,
     private val notFoundMessage: String = "Topico não encontrado!"
 ) {
-    fun listar(nomeCurso: String?, paginacao: Pageable): List<TopicoView> { //TODO: Arrumar a paginação, voltar para Page<TopicoView>
+    fun listar(nomeCurso: String?, paginacao: Pageable): Page<TopicoView> {
         val topicos = if (nomeCurso == null) {
-            //TODO: Arrumar a paginação
-            //repository.findAll(paginacao)
-            repository.findAll()
+            repository.findAll(paginacao)
         } else {
             repository.findByCursoNome(nomeCurso, paginacao)
         }

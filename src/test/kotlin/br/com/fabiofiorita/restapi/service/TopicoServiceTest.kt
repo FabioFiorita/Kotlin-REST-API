@@ -3,13 +3,15 @@ package br.com.fabiofiorita.restapi.service
 import br.com.fabiofiorita.restapi.exception.NotFoundException
 import br.com.fabiofiorita.restapi.mapper.TopicoFormMapper
 import br.com.fabiofiorita.restapi.mapper.TopicoViewMapper
+import br.com.fabiofiorita.restapi.model.Topico
 import br.com.fabiofiorita.restapi.model.TopicoTest
 import br.com.fabiofiorita.restapi.model.TopicoViewTest
 import br.com.fabiofiorita.restapi.repository.TopicoRepository
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.slot
 import io.mockk.verify
-import org.junit.Assert.assertEquals
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.data.domain.PageImpl
@@ -17,44 +19,66 @@ import org.springframework.data.domain.Pageable
 import java.util.*
 
 class TopicoServiceTest {
-    private val topicos = PageImpl(listOf(TopicoTest.build()))
-    private val paginacao: Pageable = mockk()
-    private val topicoRepository: TopicoRepository = mockk {
-        every { findByCursoNome(any(), any()) } returns topicos
-        every { findAll() } returns topicos.toList() //TODO: Arrumar a paginação e retornar a usar como Page<TopicoView>
-        every { findById(any()) } returns Optional.empty()
-    }
-    private val topicoViewMapper: TopicoViewMapper = mockk{
-        every { map(any()) } returns TopicoViewTest.build()
-    }
+    private val topico = TopicoTest.build()
+    private val topicoView = TopicoViewTest.build()
+
+    private val pages = PageImpl(listOf(topico))
+
+    private val pageable: Pageable = mockk()
+    private val topicoViewMapper: TopicoViewMapper = mockk()
     private val topicoFormMapper: TopicoFormMapper = mockk()
 
-    private val topicoService = TopicoService(topicoRepository, topicoViewMapper, topicoFormMapper)
+    private val topicoRepository: TopicoRepository = mockk {
+        every { findAll(pageable) } returns pages
+        every { findByCursoNome(any(), any()) } returns pages
+    }
+
+    private val topicoService = TopicoService(
+        repository = topicoRepository,
+        topicoViewMapper = topicoViewMapper,
+        topicoFormMapper = topicoFormMapper,
+        notFoundMessage = "Topico nao encontrado!")
 
     @Test
-    fun `deve listar topicos a partir do nome do curso`() {
-        topicoService.listar("nomeCurso", paginacao)
+    fun `deve listar topico por nome do curso`() {
+        val slot = slot<Topico>()
+        every { topicoViewMapper.map(capture(slot)) } returns topicoView
 
+        topicoService.listar("Kotlin Basico", pageable)
+
+        verify(exactly = 0) { topicoRepository.findAll(pageable) }
         verify(exactly = 1) { topicoRepository.findByCursoNome(any(), any()) }
-        verify(exactly = 0) { topicoRepository.findAll() }
         verify(exactly = 1) { topicoViewMapper.map(any()) }
+
+        assertThat(slot.captured.titulo).isEqualTo(topico.titulo)
+        assertThat(slot.captured.mensagem).isEqualTo(topico.mensagem)
+        assertThat(slot.captured.status).isEqualTo(topico.status)
     }
 
     @Test
-    fun `deve listar todos os topicos quando o nome do curso for nulo`() {
-        topicoService.listar(null, paginacao)
+    fun `deve listar todos os topicos quando nome do curso for nulo`() {
+        val slot = slot<Topico>()
+        every { topicoViewMapper.map(capture(slot)) } returns topicoView
 
+        topicoService.listar(null, pageable)
+
+        verify(exactly = 1) { topicoRepository.findAll(pageable) }
         verify(exactly = 0) { topicoRepository.findByCursoNome(any(), any()) }
-        verify(exactly = 1) { topicoRepository.findAll() }
         verify(exactly = 1) { topicoViewMapper.map(any()) }
+
+        assertThat(slot.captured.titulo).isEqualTo(topico.titulo)
+        assertThat(slot.captured.mensagem).isEqualTo(topico.mensagem)
+        assertThat(slot.captured.status).isEqualTo(topico.status)
     }
 
     @Test
-    fun `deve listar not found exception quando topico nao for achado`() {
-        val atual = assertThrows<NotFoundException> {
-            topicoService.buscarPorId(1)
+    fun `deve lancar excecao se nao achar topico por id`() {
+        every { topicoRepository.findById(any()) } returns Optional.empty()
+
+        val actual = assertThrows<NotFoundException> {
+            topicoService.buscarPorId(2)
         }
-        assertEquals("Topico não encontrado!", atual.message)
-        verify(exactly = 1) { topicoRepository.findById(any()) }
+
+        assertThat(actual.message).isEqualTo("Topico nao encontrado!")
     }
 }

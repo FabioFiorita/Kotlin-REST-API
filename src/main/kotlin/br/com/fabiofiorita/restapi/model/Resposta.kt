@@ -1,7 +1,8 @@
 package br.com.fabiofiorita.restapi.model
 
-import jakarta.persistence.*
 import java.time.LocalDateTime
+import javax.persistence.*
+
 @Entity
 data class Resposta (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,7 @@
 package br.com.fabiofiorita.restapi.model
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import jakarta.persistence.*
+import javax.persistence.*
 
 @Entity
 data class Usuario(
