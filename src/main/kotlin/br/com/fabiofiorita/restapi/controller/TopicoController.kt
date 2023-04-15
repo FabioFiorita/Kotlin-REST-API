@@ -5,6 +5,7 @@ import br.com.fabiofiorita.restapi.dto.TopicoForm
 import br.com.fabiofiorita.restapi.dto.TopicoPorCategoriaDto
 import br.com.fabiofiorita.restapi.dto.TopicoView
 import br.com.fabiofiorita.restapi.service.TopicoService
+import io.swagger.v3.oas.annotations.security.SecurityRequirement
 import jakarta.transaction.Transactional
 import jakarta.validation.Valid
 import org.springframework.cache.annotation.CacheEvict
@@ -19,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder
 import java.util.*
 
 @RestController
+@SecurityRequirement(name = "bearerAuth")
 @RequestMapping("/topicos")
 class TopicoController(private val service: TopicoService) {
     @GetMapping

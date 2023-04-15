@@ -24,21 +24,19 @@ class SecurityConfiguration(
 
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
-        http.
-        csrf()?.disable()?.
-        authorizeHttpRequests()?.
-        requestMatchers("/topicos")?.hasAuthority("LEITURA_ESCRITA")?.
-        requestMatchers("/respostas")?.hasAuthority("LEITURA_ESCRITA")?.
-        requestMatchers("/relatorios")?.hasAuthority("ADMIN")?.
-        requestMatchers(HttpMethod.POST,"/login")?.permitAll()?.
-        requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**", "/webjars/swagger-ui/**")?.permitAll()?.
-        anyRequest()?.
-        authenticated()?.
-        and()
-        http.addFilterBefore(JWTLoginFilter(authManager = configuration.authenticationManager, jwtUtil = jwtUtil), UsernamePasswordAuthenticationFilter().javaClass)
-        http.addFilterBefore(JWTAuthenticationFilter(jwtUtil = jwtUtil), UsernamePasswordAuthenticationFilter().javaClass)
-        http.sessionManagement()?.
-        sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        http.csrf()?.disable()?.authorizeHttpRequests()?.requestMatchers("/topicos")?.hasAuthority("LEITURA_ESCRITA")
+            ?.requestMatchers("/relatorios")?.hasAuthority("LEITURA_ESCRITA")
+            ?.requestMatchers(HttpMethod.POST, "/login")?.permitAll()
+            ?.requestMatchers("/v3/api-docs/**", "/swagger-ui/**")?.permitAll()?.anyRequest()?.authenticated()?.and()
+        http.addFilterBefore(
+            JWTLoginFilter(authManager = configuration.authenticationManager, jwtUtil = jwtUtil),
+            UsernamePasswordAuthenticationFilter().javaClass
+        )
+        http.addFilterBefore(
+            JWTAuthenticationFilter(jwtUtil = jwtUtil),
+            UsernamePasswordAuthenticationFilter().javaClass
+        )
+        http.sessionManagement()?.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
         return http.build()
     }
