@@ -17,7 +17,7 @@ class JWTUtil(
 ) {
 
     private val secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS512)
-    private val expiration: Long = 300000
+    private val expiration: Long = 60000000
 
 
     @Value("\${jwt.secret}")
