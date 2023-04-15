@@ -1,6 +1,7 @@
 package br.com.fabiofiorita.restapi.config
 
 import br.com.fabiofiorita.restapi.security.JWTAuthenticationFilter
+import br.com.fabiofiorita.restapi.security.JWTLoginFilter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -20,28 +21,30 @@ class SecurityConfiguration(
     private val configuration: AuthenticationConfiguration,
     private val jwtUtil: JWTUtil
 ) {
-    companion object {
-        const val LEITURA_ESCRITA = "LEITURA_ESCRITA"
+
+    @Bean
+    fun filterChain(http: HttpSecurity): SecurityFilterChain {
+        http.
+        csrf()?.disable()?.
+        authorizeHttpRequests()?.
+        requestMatchers("/topicos")?.hasAuthority("LEITURA_ESCRITA")?.
+        requestMatchers("/respostas")?.hasAuthority("LEITURA_ESCRITA")?.
+        requestMatchers("/relatorios")?.hasAuthority("ADMIN")?.
+        requestMatchers(HttpMethod.POST,"/login")?.permitAll()?.
+        requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**", "/webjars/swagger-ui/**")?.permitAll()?.
+        anyRequest()?.
+        authenticated()?.
+        and()
+        http.addFilterBefore(JWTLoginFilter(authManager = configuration.authenticationManager, jwtUtil = jwtUtil), UsernamePasswordAuthenticationFilter().javaClass)
+        http.addFilterBefore(JWTAuthenticationFilter(jwtUtil = jwtUtil), UsernamePasswordAuthenticationFilter().javaClass)
+        http.sessionManagement()?.
+        sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+
+        return http.build()
     }
 
     @Bean
-    fun filterChain(httpSecurity: HttpSecurity): SecurityFilterChain {
-        return httpSecurity
-            .headers { it.frameOptions().disable() }
-            .authorizeHttpRequests {
-                it.requestMatchers(HttpMethod.POST,"/login").permitAll()
-                it.requestMatchers(HttpMethod.GET, "/topicos").hasAuthority(LEITURA_ESCRITA)
-                it.anyRequest().authenticated()
-            }
-            .addFilterBefore(JWTLoginFilter(configuration.authenticationManager, jwtUtil), UsernamePasswordAuthenticationFilter().javaClass)
-            .addFilterBefore(JWTAuthenticationFilter(jwtUtil), UsernamePasswordAuthenticationFilter::class.java)
-            .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
-            .csrf().disable()
-            .build()
-    }
-
-    @Bean
-    fun encoder(): PasswordEncoder {
+    fun encoder(): PasswordEncoder? {
         return BCryptPasswordEncoder()
     }
 }
