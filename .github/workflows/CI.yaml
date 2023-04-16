@@ -27,7 +27,13 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Run Tests with Coverage
-        run: mvn clean verify
+        run: mvn clean test site
+
+      - name: Upload Test Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test-Artifact
+          path: ./target/site/
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
