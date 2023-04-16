@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  in-docker_test:
+    name: Docker tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+
+      - name: Cache de deps
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+                ${{ runner.os }}-m2
+
+      - name: Executar testes
+        run: mvn -b test
