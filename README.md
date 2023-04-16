@@ -10,7 +10,6 @@ Este projeto é uma API RESTful escrita em Kotlin usando o framework Spring Boot
 - StatusTopico (enum) 📊
 - Topico 📋
 - Usuario 👤
-- Respostas 🗒️
 
 O código está organizado nas seguintes camadas: controller, dto, exception, mapper, model e service.
 
