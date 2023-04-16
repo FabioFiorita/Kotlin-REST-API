@@ -8,6 +8,8 @@ import br.com.fabiofiorita.restapi.exception.NotFoundException
 import br.com.fabiofiorita.restapi.mapper.TopicoFormMapper
 import br.com.fabiofiorita.restapi.mapper.TopicoViewMapper
 import br.com.fabiofiorita.restapi.repository.TopicoRepository
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -20,6 +22,7 @@ class TopicoService(
     private val topicoFormMapper: TopicoFormMapper,
     private val notFoundMessage: String = "Topico não encontrado!"
 ) {
+    @Cacheable("topicos", key = "#root.method.name")
     fun listar(nomeCurso: String?, paginacao: Pageable): Page<TopicoView> {
         val topicos = if (nomeCurso == null) {
             repository.findAll(paginacao)
@@ -35,13 +38,13 @@ class TopicoService(
         val topico = repository.findById(id).orElseThrow { NotFoundException(notFoundMessage) }
         return topicoViewMapper.map(topico)
     }
-
+    @CacheEvict(value = ["topicos"], allEntries = true)
     fun cadastrar(form: TopicoForm): TopicoView {
         val topico = topicoFormMapper.map(form)
         repository.save(topico)
         return topicoViewMapper.map(topico)
     }
-
+    @CacheEvict(value = ["topicos"], allEntries = true)
     fun atualizar(form: AutalizacaoTopicoForm): TopicoView {
         val topico = repository.findById(form.id).orElseThrow { NotFoundException(notFoundMessage) }
         topico.titulo = form.titulo
@@ -49,7 +52,7 @@ class TopicoService(
         topico.dataAlteracao = LocalDate.now()
         return topicoViewMapper.map(topico)
     }
-
+    @CacheEvict(value = ["topicos"], allEntries = true)
     fun deletar(id: Long) {
         repository.deleteById(id)
     }
