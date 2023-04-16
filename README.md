@@ -7,6 +7,19 @@
 
 <img src="https://raw.githubusercontent.com/FabioFiorita/Kotlin-REST-API/master/images/swaggerUI.png#vitrinedev" alt="Kotlin REST API">
 
+- [API RESTful para um Fórum escrito em Kotlin com Spring Boot 🚀](#api-restful-para-um-fórum-escrito-em-kotlin-com-spring-boot-)
+  - [Descrição 📝](#descrição-)
+  - [Instalação 💻](#instalação-)
+  - [Tecnologias utilizadas 🛠](#tecnologias-utilizadas-)
+  - [Docker 🐳](#docker-)
+  - [Testes 🧪](#testes-)
+  - [Banco de dados 🗄](#banco-de-dados-)
+  - [Redis 📦](#redis-)
+  - [Autenticação](#autenticação)
+  - [Uso 🔍](#uso-)
+  - [Links úteis 📌](#links-úteis-)
+
+
 ## Descrição 📝
 
 Este projeto é uma API RESTful escrita em Kotlin usando o framework Spring Boot. A API simula um fórum e possui os seguintes modelos:
