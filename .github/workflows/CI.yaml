@@ -26,16 +26,5 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Run Tests with Coverage
-        run: mvn clean test site
-
-      - name: Upload Test Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Test-Artifact
-          path: ./target/site/
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Run Tests
+        run: mvn clean test
