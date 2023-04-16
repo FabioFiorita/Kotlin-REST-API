@@ -20,22 +20,23 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 class SecurityConfiguration(
     private val userDetailsService: UserDetailsService,
     private val jwtUtil: JWTUtil
-)
-    : WebSecurityConfigurerAdapter() {
+) : WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity?) {
-        http?.
-        csrf()?.disable()?.
-        authorizeRequests()?.
-        antMatchers("/topicos")?.hasAuthority("LEITURA_ESCRITA")?.
-        antMatchers(HttpMethod.POST,"/login")?.permitAll()?.
-        antMatchers(HttpMethod.GET, "/swagger-ui/*")?.permitAll()?.
-        antMatchers(HttpMethod.GET,"/v3/api-docs/**")?.permitAll()?.
-        anyRequest()?.
-        authenticated()?.
-        and()
-        http?.addFilterBefore(JWTLoginFilter(authManager = authenticationManager(), jwtUtil = jwtUtil), UsernamePasswordAuthenticationFilter().javaClass)
-        http?.addFilterBefore(JWTAuthenticationFilter(jwtUtil = jwtUtil), UsernamePasswordAuthenticationFilter().javaClass)
+        http?.csrf()?.disable()?.authorizeRequests()?.antMatchers("/topicos")?.hasAuthority("LEITURA_ESCRITA")
+            ?.antMatchers("/respostas")?.hasAuthority("LEITURA_ESCRITA")
+            ?.antMatchers("/relatorios")?.hasAuthority("ADMIN")
+            ?.antMatchers(HttpMethod.POST, "/login")?.permitAll()
+            ?.antMatchers(HttpMethod.GET, "/swagger-ui/*")?.permitAll()
+            ?.antMatchers(HttpMethod.GET, "/v3/api-docs/**")?.permitAll()?.anyRequest()?.authenticated()?.and()
+        http?.addFilterBefore(
+            JWTLoginFilter(authManager = authenticationManager(), jwtUtil = jwtUtil),
+            UsernamePasswordAuthenticationFilter().javaClass
+        )
+        http?.addFilterBefore(
+            JWTAuthenticationFilter(jwtUtil = jwtUtil),
+            UsernamePasswordAuthenticationFilter().javaClass
+        )
         http?.sessionManagement()?.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
     }
 
