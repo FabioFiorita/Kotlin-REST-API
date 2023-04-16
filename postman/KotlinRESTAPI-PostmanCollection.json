@@ -9,75 +9,289 @@
 		{
 			"name": "Listar Topicos",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE1MDAyNDN9.44DNUNG1Od28lKRQ5zLZFILgi7IzNHc80syetS3A7l6q14JW3sSDZscfDib185C3MGnVb3J1gGGskWE1CUXbow",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3080/topicos",
-					"protocol": "http",
+					"raw": "{{adress}}/topicos",
 					"host": [
-						"localhost"
+						"{{adress}}"
 					],
-					"port": "3080",
 					"path": [
 						"topicos"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Listar Topicos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/topicos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"topicos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:09:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": [\n        {\n            \"id\": 3,\n            \"titulo\": \"Novo titulo\",\n            \"mensagem\": \"Nova mensagem\",\n            \"status\": \"NAO_RESPONDIDO\",\n            \"dataCriacao\": \"2023-04-16T11:13:41\",\n            \"dataAlteracao\": null\n        },\n        {\n            \"id\": 2,\n            \"titulo\": \"Novo titulo\",\n            \"mensagem\": \"Nova mensagem\",\n            \"status\": \"NAO_RESPONDIDO\",\n            \"dataCriacao\": \"2023-04-15T14:05:11\",\n            \"dataAlteracao\": null\n        },\n        {\n            \"id\": 1,\n            \"titulo\": \"Titulo alterado\",\n            \"mensagem\": \"Mensagem alterada\",\n            \"status\": \"NAO_RESPONDIDO\",\n            \"dataCriacao\": \"2021-12-24T12:00:00\",\n            \"dataAlteracao\": \"2023-04-15\"\n        }\n    ],\n    \"pageable\": {\n        \"sort\": {\n            \"unsorted\": false,\n            \"sorted\": true,\n            \"empty\": false\n        },\n        \"offset\": 0,\n        \"pageNumber\": 0,\n        \"pageSize\": 5,\n        \"paged\": true,\n        \"unpaged\": false\n    },\n    \"last\": true,\n    \"totalPages\": 1,\n    \"totalElements\": 3,\n    \"first\": true,\n    \"size\": 5,\n    \"number\": 0,\n    \"sort\": {\n        \"unsorted\": false,\n        \"sorted\": true,\n        \"empty\": false\n    },\n    \"numberOfElements\": 3,\n    \"empty\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Swagger UI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{adress}}/swagger-ui/index.html",
+					"host": [
+						"{{adress}}"
+					],
+					"path": [
+						"swagger-ui",
+						"index.html"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Swagger UI",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/swagger-ui/index.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"swagger-ui",
+								"index.html"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Sat, 15 Apr 2023 20:42:01 GMT"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1533"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:09:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<!-- HTML for static distribution bundle build -->\n<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <title>Swagger UI</title>\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"./swagger-ui.css\" />\n        <link rel=\"icon\" type=\"image/png\" href=\"./favicon-32x32.png\" sizes=\"32x32\" />\n        <link rel=\"icon\" type=\"image/png\" href=\"./favicon-16x16.png\" sizes=\"16x16\" />\n        <style>\n      html\n      {\n        box-sizing: border-box;\n        overflow: -moz-scrollbars-vertical;\n        overflow-y: scroll;\n      }\n\n      *,\n      *:before,\n      *:after\n      {\n        box-sizing: inherit;\n      }\n\n      body\n      {\n        margin:0;\n        background: #fafafa;\n      }\n    </style>\n    </head>\n    <body>\n        <div id=\"swagger-ui\"></div>\n        <script src=\"./swagger-ui-bundle.js\" charset=\"UTF-8\"> </script>\n        <script src=\"./swagger-ui-standalone-preset.js\" charset=\"UTF-8\"> </script>\n        <script>\n    window.onload = function() {\n      // Begin Swagger UI call region\n      const ui = SwaggerUIBundle({\n        url: \"https://petstore.swagger.io/v2/swagger.json\",\n        dom_id: '#swagger-ui',\n        deepLinking: true,\n        presets: [\n          SwaggerUIBundle.presets.apis,\n          SwaggerUIStandalonePreset\n        ],\n        plugins: [\n          SwaggerUIBundle.plugins.DownloadUrl\n        ],\n        layout: \"StandaloneLayout\" ,\n\n  \"configUrl\" : \"/v3/api-docs/swagger-config\",\n  \"validatorUrl\" : \"\"\n\n      });\n      // End Swagger UI call region\n\n      window.ui = ui;\n    };\n  </script>\n    </body>\n</html>"
+				}
+			]
 		},
 		{
 			"name": "Listar Topico com id",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE0OTgyOTB9.Z6zJr95afumXZi4qJsVB6xF4RSp5UjBC1annA0l-djHU8YOrmGNpZ4ndKaBn5T866rB0Rh8NE4lliph97togEA",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3080/topicos/1",
-					"protocol": "http",
+					"raw": "{{adress}}/topicos/1",
 					"host": [
-						"localhost"
+						"{{adress}}"
 					],
-					"port": "3080",
 					"path": [
 						"topicos",
 						"1"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Listar Topico com id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{adress}}/topicos/1",
+							"host": [
+								"{{adress}}"
+							],
+							"path": [
+								"topicos",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:09:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Titulo alterado\",\n    \"mensagem\": \"Mensagem alterada\",\n    \"status\": \"NAO_RESPONDIDO\",\n    \"dataCriacao\": \"2021-12-24T12:00:00\",\n    \"dataAlteracao\": \"2023-04-15\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Cadastrar Topico",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE1MDAyNDN9.44DNUNG1Od28lKRQ5zLZFILgi7IzNHc80syetS3A7l6q14JW3sSDZscfDib185C3MGnVb3J1gGGskWE1CUXbow",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [
 					{
@@ -91,22 +305,222 @@
 					"raw": "{\n    \"titulo\": \"Novo titulo\",\n    \"mensagem\": \"Nova mensagem\",\n    \"idCurso\": \"1\",\n    \"idAutor\": 1\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3080/topicos",
-					"protocol": "http",
+					"raw": "{{adress}}/topicos",
 					"host": [
-						"localhost"
+						"{{adress}}"
 					],
-					"port": "3080",
 					"path": [
 						"topicos"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Cadastrar Topico",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Novo titulo\",\n    \"mensagem\": \"Nova mensagem\",\n    \"idCurso\": \"1\",\n    \"idAutor\": 1\n}"
+						},
+						"url": {
+							"raw": "{{adress}}/topicos",
+							"host": [
+								"{{adress}}"
+							],
+							"path": [
+								"topicos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Location",
+							"value": "http://localhost:8080/topicos/4"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:09:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"titulo\": \"Novo titulo\",\n    \"mensagem\": \"Nova mensagem\",\n    \"status\": \"NAO_RESPONDIDO\",\n    \"dataCriacao\": \"2023-04-16T19:09:42.4405\",\n    \"dataAlteracao\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Cadastrar Resposta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"mensagem\": \"Teste de resposta\",\n    \"autor\": {\n        \"id\": 1,\n        \"nome\": \"Ana da Silva\",\n        \"email\": \"ana@email.com\",\n        \"password\": \"123456\"\n    },\n    \"topico\": {\n        \"id\": 2,\n        \"titulo\": \"Kotlin\",\n        \"mensagem\": \"Nova mensagem\",\n        \"categoria\": \"Programacao\",\n        \"autor\": {\n            \"1d\": 1,\n            \"nome\": \"Ana da Silva\",\n            \"email\": \"ana@email.com\",\n            \"password\": \"123456\"\n        },\n        \"curso\": {\n            \"1d\": 1,\n            \"nome\": \"Kotlin\",\n            \"categoria\": \"Programacao\"\n        },\n        \"status\": \"NAO_SOLUCIONADO\"\n    },\n    \"solucao\": false\n}"
+				},
+				"url": {
+					"raw": "{{adress}}/respostas",
+					"host": [
+						"{{adress}}"
+					],
+					"path": [
+						"respostas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cadastrar Resposta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"mensagem\": \"Teste de resposta\",\n    \"autor\": {\n        \"id\": 1,\n        \"nome\": \"Ana da Silva\",\n        \"email\": \"ana@email.com\",\n        \"password\": \"123456\"\n    },\n    \"topico\": {\n        \"id\": 2,\n        \"titulo\": \"Kotlin\",\n        \"mensagem\": \"Nova mensagem\",\n        \"categoria\": \"Programacao\",\n        \"autor\": {\n            \"1d\": 1,\n            \"nome\": \"Ana da Silva\",\n            \"email\": \"ana@email.com\",\n            \"password\": \"123456\"\n        },\n        \"curso\": {\n            \"1d\": 1,\n            \"nome\": \"Kotlin\",\n            \"categoria\": \"Programacao\"\n        },\n        \"status\": \"NAO_SOLUCIONADO\"\n    },\n    \"solucao\": false\n}"
+						},
+						"url": {
+							"raw": "{{adress}}/respostas",
+							"host": [
+								"{{adress}}"
+							],
+							"path": [
+								"respostas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:11:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Fazer Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Extrair o valor do token da header de autorização",
+							"const authorizationHeader = pm.response.headers.get('Authorization');",
+							"const token = authorizationHeader.split(' ')[1];",
+							"",
+							"// Setar a variável `token` com o valor do token",
+							"pm.collectionVariables.set('token', token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -120,32 +534,345 @@
 					"raw": "{\n    \"username\": \"joao@email.com\",\n    \"password\": \"123456\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3080/login",
-					"protocol": "http",
+					"raw": "{{adress}}/login",
 					"host": [
-						"localhost"
+						"{{adress}}"
 					],
-					"port": "3080",
 					"path": [
 						"login"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Fazer Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"joao@email.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{adress}}/login",
+							"host": [
+								"{{adress}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJleHAiOjE2ODE2ODg5Mjl9.H84pn54nlviNUXxw6A1AEcYnYDIaPT3aAI1huOi1E-b8b9MJvQXRDT6zIS-6TsrD58RXvye8xdegRNYjn-KIuQ"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:08:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Fazer Login Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Extrair o valor do token da header de autorização",
+							"const authorizationHeader = pm.response.headers.get('Authorization');",
+							"const token = authorizationHeader.split(' ')[1];",
+							"",
+							"// Setar a variável `token` com o valor do token",
+							"pm.collectionVariables.set('token', token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin@email.com\",\n    \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{adress}}/login",
+					"host": [
+						"{{adress}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fazer Login Admin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"admin@email.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{adress}}/login",
+							"host": [
+								"{{adress}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBlbWFpbC5jb20iLCJyb2xlIjpbeyJpZCI6Miwibm9tZSI6IkFETUlOIiwiYXV0aG9yaXR5IjoiQURNSU4ifV0sImV4cCI6MTY4MTY4ODkwNn0.vdvLaIS1OBfrjLKuOsZFrYvU8b-XmoKkwAdeM-6ccfjCiB42JGDH1pJOcyBph2S-y8TarvpuOL1DLMDdAze9kQ"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:08:26 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Listar relatorio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"joao@email.com\",\n    \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{adress}}/relatorios",
+					"host": [
+						"{{adress}}"
+					],
+					"path": [
+						"relatorios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Listar relatorio",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"joao@email.com\",\n    \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{adress}}/relatorios",
+							"host": [
+								"{{adress}}"
+							],
+							"path": [
+								"relatorios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html;charset=UTF-8"
+						},
+						{
+							"key": "Content-Language",
+							"value": "pt-BR"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:09:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<html>\n    <head>\n        <title>Relatorio administrativo</title>\n        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" />\n    </head>\n    <body>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                    <h1> Topicos por categoria </h1>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md-6\">\n                    <table class=\"table\">\n                        <thead>\n                            <tr>\n                                <th> Categoria </th>\n                                <th> Quantidade </th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr>\n                                <td>Framework</td>\n                                <td>3</td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    </body>\n</html>"
+				}
+			]
 		},
 		{
 			"name": "Atualizar Topico",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE0OTgyOTB9.Z6zJr95afumXZi4qJsVB6xF4RSp5UjBC1annA0l-djHU8YOrmGNpZ4ndKaBn5T866rB0Rh8NE4lliph97togEA",
-							"type": "string"
-						}
-					]
-				},
 				"method": "PUT",
 				"header": [
 					{
@@ -159,41 +886,105 @@
 					"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Titulo alterado\",\n    \"mensagem\": \"Mensagem alterada\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3080/topicos",
-					"protocol": "http",
+					"raw": "{{adress}}/topicos",
 					"host": [
-						"localhost"
+						"{{adress}}"
 					],
-					"port": "3080",
 					"path": [
 						"topicos"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Atualizar Topico",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Titulo alterado\",\n    \"mensagem\": \"Mensagem alterada\"\n}"
+						},
+						"url": {
+							"raw": "{{adress}}/topicos",
+							"host": [
+								"{{adress}}"
+							],
+							"path": [
+								"topicos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Apr 2023 22:09:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"titulo\": \"Titulo alterado\",\n    \"mensagem\": \"Mensagem alterada\",\n    \"status\": \"NAO_RESPONDIDO\",\n    \"dataCriacao\": \"2021-12-24T12:00:00\",\n    \"dataAlteracao\": \"2023-04-16\"\n}"
+				}
+			]
 		},
 		{
 			"name": "Deletar Topico",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2FvQGVtYWlsLmNvbSIsInJvbGUiOlt7ImlkIjoxLCJub21lIjoiTEVJVFVSQV9FU0NSSVRBIiwiYXV0aG9yaXR5IjoiTEVJVFVSQV9FU0NSSVRBIn1dLCJpYXQiOjE2ODE0OTgyOTB9.Z6zJr95afumXZi4qJsVB6xF4RSp5UjBC1annA0l-djHU8YOrmGNpZ4ndKaBn5T866rB0Rh8NE4lliph97togEA",
-							"type": "string"
-						}
-					]
-				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3080/topicos/1",
-					"protocol": "http",
+					"raw": "{{adress}}/topicos/1",
 					"host": [
-						"localhost"
+						"{{adress}}"
 					],
-					"port": "3080",
 					"path": [
 						"topicos",
 						"1"
@@ -201,6 +992,46 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "adress",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "token",
+			"value": ""
 		}
 	]
 }
