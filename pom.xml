@@ -202,7 +202,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<activatedProperties>prod</activatedProperties>
+				<activatedProperties>dev</activatedProperties>
 			</properties>
 		</profile>
 		<profile>
