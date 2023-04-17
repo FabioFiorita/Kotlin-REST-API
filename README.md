@@ -1,5 +1,6 @@
 # API RESTful para um Fórum escrito em Kotlin com Spring Boot 🚀
 [![CI](https://github.com/FabioFiorita/Kotlin-REST-API/actions/workflows/CI.yaml/badge.svg)](https://github.com/FabioFiorita/Kotlin-REST-API/actions/workflows/CI.yaml)
+[![codebeat badge](https://codebeat.co/badges/0b2ac172-2eae-4798-86e1-6c25f93e8a42)](https://codebeat.co/projects/github-com-fabiofiorita-kotlin-rest-api-master)
 
 ![GitHub](https://img.shields.io/github/license/fabiofiorita/Kotlin-REST-API)
 ![GitHub language count](https://img.shields.io/github/languages/count/fabiofiorita/Kotlin-REST-API)
